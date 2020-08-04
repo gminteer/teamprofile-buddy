@@ -8,9 +8,10 @@ test('creates a manager, verifies the manager has a company', () => {
 });
 
 test("checks manager's getter functions", () => {
-  const manager = new Manager('John Doe');
+  const manager = new Manager('John Doe', {officeNumber: '+1-212-555-7890'});
 
   expect(manager.getName()).toEqual('John Doe');
+  expect(manager.getOfficeNumber()).toEqual('+1-212-555-7890');
   expect(uuidValidate(manager.getId())).toEqual(true);
   expect(manager.getEmail()).toEqual(`${manager.getName().replace(/\s/g, '.')}@${manager.company.domain}`);
   expect(manager.getRole()).toEqual('Manager');
