@@ -1,5 +1,3 @@
-const {validate: uuidValidate} = require('uuid');
-
 const Manager = require('../lib/Manager');
 const baselineTest = require('./Employee.test');
 
