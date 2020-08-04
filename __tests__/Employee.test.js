@@ -1,17 +1,23 @@
 const {validate: uuidValidate} = require('uuid');
+
 const Employee = require('../lib/Employee');
 
-test('creates an employee, verifies employee has a company', () => {
+function baselineTest(Constructor) {
+  return test('checks basic Employee functionality', () => {
+    const instance = new Constructor('John Doe');
+
+    expect(instance.company).toEqual(expect.objectContaining({name: expect.any(String), domain: expect.any(String)}));
+    expect(instance.getName()).toEqual('John Doe');
+    expect(uuidValidate(instance.getId())).toEqual(true);
+    expect(instance.getEmail()).toEqual(`${instance.getName().replace(/\s/g, '.')}@${instance.company.domain}`);
+  });
+}
+baselineTest(Employee);
+
+test("checks employee's role", () => {
   const employee = new Employee('John Doe');
 
-  expect(employee.company).toEqual(expect.objectContaining({name: expect.any(String), domain: expect.any(String)}));
-});
-
-test("checks employee's getter functions", () => {
-  const employee = new Employee('John Doe');
-
-  expect(employee.getName()).toEqual('John Doe');
-  expect(uuidValidate(employee.getId())).toEqual(true);
-  expect(employee.getEmail()).toEqual(`${employee.getName().replace(/\s/g, '.')}@${employee.company.domain}`);
   expect(employee.getRole()).toEqual('Employee');
 });
+
+module.exports = baselineTest;

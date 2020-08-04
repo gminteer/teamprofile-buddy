@@ -1,18 +1,13 @@
 const {validate: uuidValidate} = require('uuid');
+
 const Manager = require('../lib/Manager');
+const baselineTest = require('./Employee.test');
 
-test('creates a manager, verifies the manager has a company', () => {
-  const manager = new Manager('John Doe');
+baselineTest(Manager);
 
-  expect(manager.company).toEqual(expect.objectContaining({name: expect.any(String), domain: expect.any(String)}));
-});
-
-test("checks manager's getter functions", () => {
+test("checks manager's role and getter functions", () => {
   const manager = new Manager('John Doe', {officeNumber: '+1-212-555-7890'});
 
-  expect(manager.getName()).toEqual('John Doe');
   expect(manager.getOfficeNumber()).toEqual('+1-212-555-7890');
-  expect(uuidValidate(manager.getId())).toEqual(true);
-  expect(manager.getEmail()).toEqual(`${manager.getName().replace(/\s/g, '.')}@${manager.company.domain}`);
   expect(manager.getRole()).toEqual('Manager');
 });
