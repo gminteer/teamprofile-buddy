@@ -7,9 +7,11 @@ describe('Engineer specific tests', () => {
   beforeEach(() => {
     engineer = new Engineer('John Doe', {github: 'jdoe47284'});
   });
+
   test('getGithub() matches input', () => {
     expect(engineer.getGithub()).toEqual('jdoe47284');
   });
+
   test('getRole() returns "Engineer"', () => {
     expect(engineer.getRole()).toEqual('Engineer');
   });

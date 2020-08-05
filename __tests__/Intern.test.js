@@ -7,9 +7,11 @@ describe('Intern specific tests', () => {
   beforeEach(() => {
     intern = new Intern('John Doe', {school: 'CGNU'});
   });
+
   test('getSchool() matches input', () => {
     expect(intern.getSchool()).toEqual('CGNU');
   });
+
   test('getRole() returns "Intern"', () => {
     expect(intern.getRole()).toEqual('Intern');
   });
