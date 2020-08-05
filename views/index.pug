@@ -3,10 +3,10 @@ include ./mixins/employeeCard.pug
 doctype html
 html(lang="en")
   include ./includes/header.pug
-body
-  header
-    h1 #{team} @ #{company.name}
-  main
-    div
-      each employee in Object.values(employees)
-        +employeeCard(employee)
+  body
+    header
+      h1 #{team} @ #{company.name}
+    main
+      div
+        each employee in Object.values(employees)
+          +employeeCard(employee)
