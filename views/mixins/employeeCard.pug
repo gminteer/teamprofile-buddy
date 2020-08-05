@@ -1,0 +1,31 @@
+mixin employeeCard(employee)
+  - const role = employee.getRole()
+  - const email = employee.getEmail()
+  div
+    h2= employee.getName()
+    h3= role
+    div
+      div
+        p ID
+      div
+        p= employee.getId()
+      div
+        p Email
+      div
+        a(href=`mailto:${email}`)= email
+      if role === 'Manager'
+        div
+          p Office Number
+        div
+          p= employee.getOfficeNumber()
+      else if role === 'Engineer'
+        - const github = employee.getGithub()
+        div
+          p GitHub
+        div
+          a(href=`https://github.com/${github}`)= github
+      else if role === 'Intern'
+        div
+          p School
+        div
+          p= employee.getSchool()
