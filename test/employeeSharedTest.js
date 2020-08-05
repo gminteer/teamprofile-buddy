@@ -1,6 +1,5 @@
 const {validate: uuidValidate} = require('uuid');
 const {validate: emailValidate} = require('email-validator');
-
 global.employeeSharedTest = (Constructor) => {
   return describe('Employee shared functionality', () => {
     let instance;
