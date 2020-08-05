@@ -1,4 +1,12 @@
 #!/usr/bin/env node
-app = require('./lib/app');
+const pug = require('pug');
+const fs = require('fs');
+const getAnswers = require('./lib/getAnswers');
 
-app.getAnswers().then(console.log);
+getAnswers()
+  .then((locals) => {
+    const template = pug.compileFile('./views/index.pug');
+    return fs.promises.writeFile('./dist/index.html', template(locals));
+  })
+  .then(() => console.log('dist/index.html rendered.'))
+  .catch((error) => console.error(error));
