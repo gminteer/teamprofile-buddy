@@ -1,7 +1,6 @@
 const Manager = require('../lib/Manager');
-const baselineTest = require('./Employee.test');
 
-baselineTest(Manager);
+employeeSharedTest(Manager);
 
 test("checks manager's role and getter functions", () => {
   const manager = new Manager('John Doe', {officeNumber: '+1-212-555-7890'});

@@ -1,7 +1,6 @@
 const Engineer = require('../lib/Engineer');
-const baselineTest = require('./Employee.test');
 
-baselineTest(Engineer);
+employeeSharedTest(Engineer);
 
 test("checks engineer's role and getter functions", () => {
   const engineer = new Engineer('John Doe', {github: 'jdoe47284'});
