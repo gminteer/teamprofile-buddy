@@ -2,9 +2,15 @@ const Intern = require('../lib/Intern');
 
 employeeSharedTest(Intern);
 
-test("checks intern's role and getter functions", () => {
-  const intern = new Intern('John Doe', {school: 'CGNU'});
-
-  expect(intern.getSchool()).toEqual('CGNU');
-  expect(intern.getRole()).toEqual('Intern');
+describe('Intern specific tests', () => {
+  let intern;
+  beforeEach(() => {
+    intern = new Intern('John Doe', {school: 'CGNU'});
+  });
+  test('getSchool() matches input', () => {
+    expect(intern.getSchool()).toEqual('CGNU');
+  });
+  test('getRole() returns "Intern"', () => {
+    expect(intern.getRole()).toEqual('Intern');
+  });
 });

@@ -2,8 +2,9 @@ const Employee = require('../lib/Employee');
 
 employeeSharedTest(Employee);
 
-test("checks employee's role", () => {
+describe('Employee specific tests', () => {
   const employee = new Employee('John Doe');
-
-  expect(employee.getRole()).toEqual('Employee');
+  test('getRole() returns "Employee"', () => {
+    expect(employee.getRole()).toEqual('Employee');
+  });
 });
