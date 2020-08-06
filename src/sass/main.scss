@@ -1,0 +1,9 @@
+@charset "utf-8";
+@import '../../node_modules/bulma/sass/utilities/initial-variables';
+$pink: #ff8080;
+$pink-invert: #fff;
+
+$primary: $pink;
+$primary-invert: $pink-invert;
+
+@import '../../node_modules/bulma/bulma';

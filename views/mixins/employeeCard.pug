@@ -1,31 +1,31 @@
 mixin employeeCard(employee)
   - const role = employee.getRole()
   - const email = employee.getEmail()
-  div
-    h2= employee.getName()
-    h3= role
-    div
-      div
-        p ID
-      div
-        p= employee.getId()
-      div
-        p Email
-      div
-        a(href=`mailto:${email}`)= email
-      if role === 'Manager'
-        div
-          p Office Number
-        div
-          p= employee.getOfficeNumber()
-      else if role === 'Engineer'
-        - const github = employee.getGithub()
-        div
-          p GitHub
-        div
-          a(href=`https://github.com/${github}`)= github
-      else if role === 'Intern'
-        div
-          p School
-        div
-          p= employee.getSchool()
+  div.card
+    div.card-header
+      h2.card-header-title= employee.getName()
+    div.card-content
+      h3= role
+      table.table
+        tbody
+          tr
+            th ID
+            td= employee.getId()
+          tr
+            th Email
+            td
+              a(href=`mailto:${email}`)= email
+          if role === 'Manager'
+            tr
+              th Office Number
+              td= employee.getOfficeNumber()
+          else if role === 'Engineer'
+            - const github = employee.getGithub()
+            tr
+              th GitHub
+              td
+                a(href=`https://github.com/${github}`)= github
+          else if role === 'Intern'
+            tr
+              th School
+              td= employee.getSchool()
