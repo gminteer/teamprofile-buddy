@@ -5,8 +5,13 @@
   "main": "bin/cli.js",
   "bin": "bin/cli.js",
   "scripts": {
+    "css-build": "node-sass src/sass/main.scss dist/assets/css/main.css",
+    "css-postcss": "postcss --use autoprefixer --output dist/assets/css/main.css dist/assets/css/main.css",
+    "css-deploy": "npm run css-build && npm run css-postcss",
+    "css-watch": "npm run css-build -- --watch",
     "test": "jest",
-    "test-watch": "npm run test -- --watch"
+    "test-watch": "npm run test -- --watch",
+    "start:dev": "npm-run-all --parallel css-watch test-watch"
   },
   "jest": {
     "setupFiles": [
@@ -26,12 +31,17 @@
     "uuid": "^8.3.0"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "bulma": "^0.9.0",
     "eslint": "^7.6.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-prettier": "^3.1.4",
+    "node-sass": "^4.14.1",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^7.1.1",
     "prettier": "^2.0.5"
   }
 }
