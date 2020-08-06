@@ -1,18 +1,54 @@
 @charset "utf-8";
 @import '../../node_modules/bulma/sass/utilities/initial-variables';
+@import './colorscheme.scss';
+@use 'sass:color';
 
-$box-radius: 1.5em;
+$primary: map-get(
+  $map: $colorscheme,
+  $key: 'prussian-blue',
+);
+$primary-invert: $white;
+$scheme-main: map-get(
+  $map: $colorscheme,
+  $key: 'honeydew',
+);
+$scheme-main-bis: adjust-color(
+  $color: $scheme-main,
+  $lightness: -2%,
+);
+$scheme-main-ter: adjust-color(
+  $color: $scheme-main,
+  $lightness: -2%,
+);
+$link: map-get(
+  $map: $colorscheme,
+  $key: 'imperial-red',
+);
 
-@import '../../node_modules/bulma/bulma';
+@import '../../node_modules/bulma/sass/utilities/_all.sass';
+@import '../../node_modules/bulma/sass/base/_all.sass';
+@import '../../node_modules/bulma/sass/helpers/_all.sass';
+@import '../../node_modules/bulma/sass/grid/columns.sass';
+@import '../../node_modules/bulma/sass/elements/box.sass';
+@import '../../node_modules/bulma/sass/elements/image.sass';
+@import '../../node_modules/bulma/sass/elements/table.sass';
+@import '../../node_modules/bulma/sass/elements/title.sass';
+@import '../../node_modules/bulma/sass/components/level.sass';
+@import '../../node_modules/bulma/sass/components/media.sass';
 
-.employee-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  .media {
-    border-radius: 1em 1em 0 0;
-  }
-  img {
-    border-radius: 4px;
-  }
-}
+$card-background-color: map-get(
+  $map: $colorscheme,
+  $key: 'celadon-blue',
+);
+$card-text-color: $white;
+$card-border-color: map-get(
+  $map: $colorscheme,
+  $key: 'powder-blue',
+);
+$card-border: 0.3em solid;
+$card-border-thin: 0.15em solid;
+$card-border-radius: 1em;
+
+@import './bg-stripe.scss';
+@import './header.scss';
+@import './employee-card.scss';

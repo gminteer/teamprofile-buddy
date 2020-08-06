@@ -2,33 +2,34 @@ mixin employeeCard(employee)
   - const role = employee.getRole()
   - const email = employee.getEmail()
   div.box.mx-4.my-2.px-0.py-0.is-one-third-mobile.employee-card
-    div.media.has-background-primary.px-1.py-1
+    div.media.has-text-white.px-1.py-1
       div.media-left.mx-2.my-1
-        figure.image.is-64x64
+        figure.image.is-96x96
           img(src=`${employee.getAvatar()}`)
       div.media-content
-        h3.title.is-4= employee.getName()
-        p.subtitle.has-text-right.is-6= role
-    table.table.is-striped.is-narrow
-      tbody
-        tr
-          th.has-text-right.is-size-7 ID
-          td.is-size-7= employee.getId()
-        tr
-          th.has-text-right Email
-          td
-            a(href=`mailto:${email}`).is-size-6= email
-        if role === 'Manager'
+        h3.title.px-3.py-3.is-4.has-text-right= employee.getName()
+        p.subtitle.px-3.py-3.is-5.has-text-right= role
+    div.table-container
+      table.table.is-striped.is-fullwidth
+        tbody
           tr
-            th.has-text-right Office Number
-            td= employee.getOfficeNumber()
-        else if role === 'Engineer'
-          - const github = employee.getGithub()
+            th.has-text-right.is-size-7 ID
+            td.is-size-7= employee.getId()
           tr
-            th.has-text-right GitHub
-            td
-              a(href=`https://github.com/${github}`)= github
-        else if role === 'Intern'
-          tr
-            th.has-text-right School
-            td= employee.getSchool()
+            th.has-text-right.is-size-7 Email
+            td.is-size-7
+              a.is-size-7(href=`mailto:${email}`).is-size-6= email
+          if role === 'Manager'
+            tr
+              th.has-text-right.is-size-7 Office Number
+              td.is-size-7= employee.getOfficeNumber()
+          else if role === 'Engineer'
+            - const github = employee.getGithub()
+            tr
+              th.has-text-right.is-size-7 GitHub
+              td.is-size-7
+                a.is-size-7(href=`https://github.com/${github}`)= github
+          else if role === 'Intern'
+            tr
+              th.has-text-right.is-size-7 School
+              td.is-size-7= employee.getSchool()
