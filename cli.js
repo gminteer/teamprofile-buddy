@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const pug = require('pug');
 const fs = require('fs');
-const getAnswers = require('./lib/getAnswers');
+const getAnswers = require('./test/mockAnswers');
 
 getAnswers()
   .then((locals) => {

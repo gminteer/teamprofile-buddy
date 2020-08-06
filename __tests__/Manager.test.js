@@ -1,5 +1,5 @@
 const Manager = require('../lib/Manager');
-const telValidate = require('../lib/telValidate');
+const telValidate = require('../test/telValidate');
 
 employeeSharedTest(Manager);
 
