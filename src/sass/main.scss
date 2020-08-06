@@ -1,9 +1,18 @@
 @charset "utf-8";
 @import '../../node_modules/bulma/sass/utilities/initial-variables';
-$pink: #ff8080;
-$pink-invert: #fff;
 
-$primary: $pink;
-$primary-invert: $pink-invert;
+$box-radius: 1.5em;
 
 @import '../../node_modules/bulma/bulma';
+
+.employee-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .media {
+    border-radius: 1em 1em 0 0;
+  }
+  img {
+    border-radius: 4px;
+  }
+}

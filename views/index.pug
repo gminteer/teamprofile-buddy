@@ -4,10 +4,16 @@ doctype html
 html(lang="en")
   include ./includes/header.pug
   body
-    header.level
-      div.level-right
-        h1.level-item #{team} @ #{company.name}
+    header.level.has-background-primary.px-2.py-2
+      div.level-left.px-2
+        h1.title.is-2= team
+      div.level-right.px-1
+        h2 @ #{company.name}
     main
-      div.container
+      div.columns.is-mobile
+        div.column.is-half.is-offset-one-quarter
+          +employeeCard(manager)
+      div.columns.is-multiline.is-mobile.is-vcentered
         each employee in Object.values(employees)
-          +employeeCard(employee)
+          div.column.is-half
+            +employeeCard(employee)

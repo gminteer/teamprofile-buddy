@@ -13,6 +13,7 @@ function fakeEmployeeData(domain) {
   return {
     name: `${firstName} ${lastName}`,
     email: `${faker.internet.userName(firstName, lastName)}@${domain}`,
+    avatar: `${faker.image.avatar()}`,
     school: fakeSchool(),
     officeNumber: faker.phone.phoneNumber(),
     github: faker.internet.userName(firstName, lastName),
@@ -27,12 +28,13 @@ async function getAnswers() {
   };
   let name, attrs;
   ({name, ...attrs} = fakeEmployeeData(data.company.domain));
-  data.employees = [new Constructor.manager(name, attrs)];
-  for (let i = 0; i < Math.ceil(Math.random() * 8); i++) {
+  data.manager = new Constructor.manager(name, attrs);
+  data.employees = [];
+  for (let i = 0; i < Math.ceil(Math.random() * 5 + 3); i++) {
     ({name, ...attrs} = fakeEmployeeData(data.company.domain));
     data.employees.push(new Constructor.engineer(name, attrs));
   }
-  for (let i = 0; i < Math.ceil(Math.random() * 8); i++) {
+  for (let i = 0; i < Math.ceil(Math.random() * 5 + 3); i++) {
     ({name, ...attrs} = fakeEmployeeData(data.company.domain));
     data.employees.push(new Constructor.intern(name, attrs));
   }
