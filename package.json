@@ -2,9 +2,11 @@
   "name": "team-profile-buddy",
   "version": "1.0.0",
   "description": "",
-  "main": "cli.js",
+  "main": "bin/cli.js",
+  "bin": "bin/cli.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "npm run test -- --watch"
   },
   "jest": {
     "setupFiles": [
@@ -12,7 +14,7 @@
     ]
   },
   "keywords": [],
-  "author": "",
+  "author": "gminteer@gmail.com",
   "license": "ISC",
   "dependencies": {
     "email-validator": "^2.0.4",

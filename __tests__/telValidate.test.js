@@ -1,5 +1,5 @@
 const faker = require('faker');
-const telValidate = require('../lib/telValidate');
+const telValidate = require('../test/telValidate');
 
 describe('Phone number validator test', () => {
   let validNumbers = [...Array(3).keys()].map((i) => faker.phone.phoneNumber());
