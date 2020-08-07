@@ -3,8 +3,14 @@ $footer-background-color: map-get(
   $map: $color-scheme,
   $key: 'powder-blue',
 );
+$footer-border-color: map-get(
+  $map: $color-scheme,
+  $key: 'celadon-blue',
+);
 footer {
   margin-top: 4rem;
+  border-top: 0.5em solid $footer-border-color;
+  border-bottom: 0.5em solid $footer-border-color;
   background-color: $footer-background-color;
   display: flex;
   flex-direction: row;
@@ -15,5 +21,10 @@ footer {
   img {
     padding: 0;
     width: 8rem;
+  }
+  figcaption {
+    p {
+      font-style: italic;
+    }
   }
 }
