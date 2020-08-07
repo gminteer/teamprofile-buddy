@@ -2,19 +2,20 @@ include ./mixins/employeeCard.pug
 
 doctype html
 html(lang="en")
-  include ./includes/header.pug
-  include ./includes/bg-stripe.pug
+  include ./includes/head.pug
   body
+    include ./includes/bg-stripe.pug
     header.level.px-2.py-2
       div.level-left.px-2
         h1.title.is-3-mobile.is-2-tablet= team
       div.level-right.px-1
-        h2 @ #{company.name}
+        h2.subtitle.is-4-mobile.is-3-tablet @ #{company.name}
     main
       div.columns.is-centered
         div.column.is-two-thirds
           +employeeCard(manager)
       div.columns.is-multiline.is-centered.is-vcentered
-        each employee in Object.values(employees)
+        each employee in employees
           div.column.is-half.is-one-third-widescreen
             +employeeCard(employee)
+    include ./includes/footer.pug

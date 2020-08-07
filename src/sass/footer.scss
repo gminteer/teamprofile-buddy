@@ -1,0 +1,19 @@
+@import './color-scheme.scss';
+$footer-background-color: map-get(
+  $map: $color-scheme,
+  $key: 'powder-blue',
+);
+footer {
+  margin-top: 4rem;
+  background-color: $footer-background-color;
+  display: flex;
+  flex-direction: row;
+  figure {
+    display: flex;
+    flex-direction: column;
+  }
+  img {
+    padding: 0;
+    width: 8rem;
+  }
+}

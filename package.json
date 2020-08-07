@@ -11,7 +11,7 @@
     "css:watch": "npm run css-build -- --watch",
     "test": "jest",
     "test:watch": "npm run test -- --watch",
-    "watch-all": "npm-run-all --parallel css-watch test-watch"
+    "watch-all": "npm-run-all --parallel css:watch test:watch"
   },
   "jest": {
     "setupFiles": [

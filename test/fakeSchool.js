@@ -1,15 +1,15 @@
-const faker = require('faker');
+const {address: fakeAddress} = require('faker');
 
-function fakeSchoolSuffix() {
-  const suffixes = ['Tech', 'University', 'College', 'Academy', 'School', 'Polytechnic'];
-  return suffixes[Math.floor(Math.random() * suffixes.length)];
+function fakeSchoolNoun() {
+  const nouns = ['Tech', 'University', 'College', 'Academy', 'School', 'Polytechnic'];
+  return nouns[Math.floor(Math.random() * nouns.length)];
 }
 
 function fakeSchool() {
   const schoolFormats = [
-    `${faker.address.city()} ${Math.random() > 0.5 ? 'City ' : ''}${fakeSchoolSuffix()}`,
-    `${faker.address.state()} ${Math.random() > 0.5 ? 'State ' : ''}${fakeSchoolSuffix()}`,
-    `${fakeSchoolSuffix()} of ${Math.random() > 0.5 ? faker.address.city() : faker.address.state()}`,
+    `${fakeAddress.city()} ${Math.random() > 0.5 ? 'City ' : ''}${fakeSchoolNoun()}`,
+    `${fakeAddress.state()} ${Math.random() > 0.5 ? 'State ' : ''}${fakeSchoolNoun()}`,
+    `${fakeSchoolNoun()} of ${Math.random() > 0.5 ? fakeAddress.city() : fakeAddress.state()}`,
   ];
   return schoolFormats[Math.floor(Math.random() * schoolFormats.length)];
 }
