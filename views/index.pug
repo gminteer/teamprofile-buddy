@@ -7,14 +7,14 @@ html(lang="en")
   body
     header.level.px-2.py-2
       div.level-left.px-2
-        h1.title.is-2= team
+        h1.title.is-3-mobile.is-2-tablet= team
       div.level-right.px-1
         h2 @ #{company.name}
     main
-      div.columns.is-mobile
-        div.column.is-half.is-offset-one-quarter
+      div.columns.is-centered
+        div.column.is-two-thirds
           +employeeCard(manager)
-      div.columns.is-multiline.is-mobile.is-vcentered
+      div.columns.is-multiline.is-centered.is-vcentered
         each employee in Object.values(employees)
-          div.column.is-half
+          div.column.is-half.is-one-third-widescreen
             +employeeCard(employee)

@@ -1,15 +1,16 @@
 @charset "utf-8";
 @import '../../node_modules/bulma/sass/utilities/initial-variables';
-@import './colorscheme.scss';
-@use 'sass:color';
+@import './color-scheme.scss';
 
+$tablet: 768px; // default is 769px for unexplained reasons.
+$column-gap: 0.25rem;
 $primary: map-get(
-  $map: $colorscheme,
+  $map: $color-scheme,
   $key: 'prussian-blue',
 );
 $primary-invert: $white;
 $scheme-main: map-get(
-  $map: $colorscheme,
+  $map: $color-scheme,
   $key: 'honeydew',
 );
 $scheme-main-bis: adjust-color(
@@ -21,7 +22,7 @@ $scheme-main-ter: adjust-color(
   $lightness: -2%,
 );
 $link: map-get(
-  $map: $colorscheme,
+  $map: $color-scheme,
   $key: 'imperial-red',
 );
 
@@ -35,19 +36,6 @@ $link: map-get(
 @import '../../node_modules/bulma/sass/elements/title.sass';
 @import '../../node_modules/bulma/sass/components/level.sass';
 @import '../../node_modules/bulma/sass/components/media.sass';
-
-$card-background-color: map-get(
-  $map: $colorscheme,
-  $key: 'celadon-blue',
-);
-$card-text-color: $white;
-$card-border-color: map-get(
-  $map: $colorscheme,
-  $key: 'powder-blue',
-);
-$card-border: 0.3em solid;
-$card-border-thin: 0.15em solid;
-$card-border-radius: 1em;
 
 @import './bg-stripe.scss';
 @import './header.scss';

@@ -7,7 +7,7 @@
   }
 }
 
-$colorscheme: (
+$color-scheme: (
   'imperial-red': #e63946,
   'honeydew': #f1faee,
   'powder-blue': #a8dadc,
@@ -15,6 +15,6 @@ $colorscheme: (
   'prussian-blue': #1d3557,
 );
 
-@each $name, $color in $colorscheme {
+@each $name, $color in $color-scheme {
   @include color-helpers($name, $color);
 }

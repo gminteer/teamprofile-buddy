@@ -1,17 +1,38 @@
+@import './color-scheme.scss';
+
+$card-background-color: map-get(
+  $map: $color-scheme,
+  $key: 'celadon-blue',
+);
+$card-text-color: white;
+$card-outer-border-color: map-get(
+  $map: $color-scheme,
+  $key: 'prussian-blue',
+);
+$card-inner-border-color: map-get(
+  $map: $color-scheme,
+  $key: 'powder-blue',
+);
+$card-border: 0.35em solid;
+$card-border-thin: 0.15em solid;
+$card-border-radius: 1em;
+$card-border-radius-small: 0.5em;
+
 .employee-card {
-  border-radius: $card-border-radius $card-border-radius 0 0;
+  border-radius: $card-border-radius;
   background-color: $card-background-color;
   color: $card-text-color;
-  border: $card-border $card-border-color;
+  border: $card-border $card-outer-border-color;
   display: flex;
   flex-direction: column;
   justify-content: center;
   img {
-    border-radius: 0.5em;
-    border: $card-border $card-border-color;
+    border-radius: $card-border-radius;
+    border: $card-border $card-inner-border-color;
   }
   .table-container {
-    border: $card-border-thin $card-background-color;
+    border-radius: $card-border-radius;
+    border: $card-border $card-inner-border-color;
   }
   .media {
     border-radius: $card-border-radius $card-border-radius 0 0;
