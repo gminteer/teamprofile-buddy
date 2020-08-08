@@ -19,7 +19,7 @@ $scheme-main-bis: adjust-color(
 );
 $scheme-main-ter: adjust-color(
   $color: $scheme-main,
-  $lightness: -2%,
+  $lightness: -4%,
 );
 $link: map-get(
   $map: $color-scheme,

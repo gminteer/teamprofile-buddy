@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     'jest/globals': true,
   },
-  plugins: ['prettier'],
+  plugins: ['prettier', 'promise', 'import', 'node', 'compat'],
   extends: ['eslint:recommended', 'google', 'prettier'],
   rules: {
     'prettier/prettier': ['warn'],
