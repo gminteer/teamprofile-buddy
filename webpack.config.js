@@ -11,6 +11,13 @@ const config = {
         test: /\.pug$/,
         use: ['pug-loader'],
       },
+      {
+        test: /\/assets\//i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+      },
     ],
   },
 };
