@@ -12,11 +12,13 @@ const config = {
         use: ['pug-loader'],
       },
       {
-        test: /\/assets\//i,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
+        test: /\/static\//i,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[path][name].[ext]',
+          },
+        }
       },
     ],
   },
@@ -25,7 +27,7 @@ const config = {
 module.exports = (env, argv) => {
   switch (argv.mode) {
     case 'development': {
-      config.devServer = {port: 8080};
+      config.devServer = { port: 8080 };
       config.plugins = [
         new HtmlWebpackPlugin({
           template: 'src/views/index.pug',
