@@ -3,18 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "bin": "index.js",
+  "bin": "bin/cli.js",
   "scripts": {
-    "css-build": "node-sass src/sass/main.scss dist/assets/css/main.css",
-    "css-postcss": "postcss --use autoprefixer --output dist/assets/css/main.css dist/assets/css/main.css",
-    "css-deploy": "npm run css-build && npm run css-postcss",
-    "css:watch": "npm run css-build -- --watch",
     "build": "webpack --mode=production",
     "build:dev": "webpack --mode=development",
     "start:dev": "webpack-dev-server --mode development --hot",
     "test": "jest",
-    "test:watch": "npm run test -- --watch",
-    "watch-all": "npm-run-all --parallel css:watch test:watch"
+    "test:watch": "npm run test -- --watch"
   },
   "jest": {
     "setupFiles": [
@@ -47,7 +42,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
     "file-loader": "^6.0.0",
-    "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.1",

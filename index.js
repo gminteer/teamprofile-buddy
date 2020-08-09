@@ -1,0 +1,1 @@
+throw new Error('This is not a library. Run "npm run build" in package directory to generate a team profile page.');
