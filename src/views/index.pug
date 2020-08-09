@@ -11,7 +11,7 @@ html(lang="en")
         div.column.is-two-thirds
           +employeeCard(manager)
       div.columns.is-multiline.is-centered.is-vcentered
-        - for(const employee of employees)
+        each employee in employees
           div.column.is-half.is-one-third-widescreen
             +employeeCard(employee)
     include ./includes/footer.pug
