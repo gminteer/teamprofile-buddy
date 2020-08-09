@@ -4,7 +4,7 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.pug$/,
+        test: /\.pug$/i,
         use: ['pug-loader'],
       },
       {
@@ -40,34 +40,31 @@ const config = {
 
 module.exports = (env, argv) => {
   const cssRule = {
-    test: /\.scss$/,
+    test: /\.scss$/i,
     use: ['css-loader', 'postcss-loader', 'sass-loader'],
   };
+  let answerFunc;
   switch (argv.mode) {
     case 'development': {
       config.devServer = { port: 8080 };
       cssRule.use.unshift('style-loader');
       config.module.rules.push(cssRule);
-      config.plugins.push(
-        new HtmlWebpackPlugin({
-          template: 'src/views/index.pug',
-          templateParameters: async () => Object({ mode: argv.mode, ...await require('./test/mockAnswers')() }),
-          filename: 'index.html',
-        }),
-      );
+      answerFunc = require('./test/mockAnswers');
       break;
     }
     case 'production': {
       cssRule.use.unshift({ loader: 'file-loader', options: { name: 'assets/css/main.css' } }, 'extract-loader');
       config.module.rules.push(cssRule);
-      config.plugins.push(
-        new HtmlWebpackPlugin({
-          template: 'src/views/index.pug',
-          templateParameters: async () => Object({ mode: argv.mode, ...await require('./lib/getAnswers')() }),
-          filename: 'index.html',
-        }),
-      );
+      answerFunc = require('./lib/getAnswers');
+      break;
     }
   }
+  config.plugins.push(
+    new HtmlWebpackPlugin({
+      template: 'src/views/index.pug',
+      filename: 'index.html',
+      templateParameters: async () => Object({ mode: argv.mode, ...await answerFunc() }),
+    }),
+  );
   return config;
 };
