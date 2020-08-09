@@ -10,10 +10,9 @@ const config = {
       {
         test: /\/assets\//i,
         use: {
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
             name: '[path][name].[ext]',
-            limit: 8192,
           },
         }
       },

@@ -5,12 +5,7 @@ html(lang="en")
   include ./includes/head.pug
   body
     include ./includes/bg-stripe.pug
-    header.level.px-2.py-2
-      div.level-left.px-2
-        h1.title.is-3-mobile.is-2-tablet= team
-      div.level-right.px-1
-        h2.subtitle.is-4-mobile.is-3-tablet @ 
-          span= company.name
+    include ./includes/header.pug
     main
       div.columns.is-centered
         div.column.is-two-thirds

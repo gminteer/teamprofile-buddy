@@ -5,7 +5,7 @@
 $tablet: 768px; // default is 769px for unexplained reasons.
 $column-gap: 0.25rem;
 $title-family: 'Raleway', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-$subtitle-family: 'Raleway', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$subtitle-family: $title-family;
 $primary: map-get(
   $map: $color-scheme,
   $key: 'prussian-blue',
