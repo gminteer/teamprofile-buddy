@@ -51,7 +51,7 @@ module.exports = (env, argv) => {
       config.plugins.push(
         new HtmlWebpackPlugin({
           template: 'src/views/index.pug',
-          templateParameters: async () => await require('./test/mockAnswers')(),
+          templateParameters: async () => Object({ env: process.env, ...await require('./test/mockAnswers')() }),
           filename: 'index.html',
         }),
       );
@@ -63,7 +63,7 @@ module.exports = (env, argv) => {
       config.plugins.push(
         new HtmlWebpackPlugin({
           template: 'src/views/index.pug',
-          templateParameters: async () => await require('./lib/getAnswers')(),
+          templateParameters: async () => Object({ env: process.env, ...await require('./lib/getAnswers')() }),
           filename: 'index.html',
         }),
       );
