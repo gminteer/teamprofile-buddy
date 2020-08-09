@@ -5,4 +5,7 @@ header {
   .subtitle {
     color: $primary-invert;
   }
+  .subtitle span {
+    font-family: $company-font;
+  }
 }

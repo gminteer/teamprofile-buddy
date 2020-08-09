@@ -1,5 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const GoogleFontsPlugin = require('@beyonk/google-fonts-webpack-plugin');
 const config = {
   module: {
     rules: [
@@ -12,9 +12,9 @@ const config = {
         use: ['pug-loader'],
       },
       {
-        test: /\/static\//i,
+        test: /\/assets\//i,
         use: {
-          loader: 'file-loader',
+          loader: 'url-loader',
           options: {
             name: '[path][name].[ext]',
           },
@@ -22,29 +22,40 @@ const config = {
       },
     ],
   },
+  plugins: [
+    new GoogleFontsPlugin({
+      fonts: [
+        {
+          family: 'Lobster Two',
+          variants: ['700italic'],
+        }
+      ],
+      filename: 'assets/fonts/fonts.css',
+    })
+  ],
 };
 
 module.exports = (env, argv) => {
   switch (argv.mode) {
     case 'development': {
       config.devServer = { port: 8080 };
-      config.plugins = [
+      config.plugins.push(
         new HtmlWebpackPlugin({
           template: 'src/views/index.pug',
           templateParameters: async () => await require('./test/mockAnswers')(),
           filename: 'index.html',
         }),
-      ];
+      );
       break;
     }
     case 'production': {
-      config.plugins = [
+      config.plugins.push(
         new HtmlWebpackPlugin({
           template: 'src/views/index.pug',
           templateParameters: async () => await require('./lib/getAnswers')(),
           filename: 'index.html',
         }),
-      ];
+      );
     }
   }
   return config;
