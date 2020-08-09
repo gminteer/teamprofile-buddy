@@ -31,7 +31,7 @@ $link: map-get(
 // using PostCSS PurgeCSS, so there's no point in importing specific modules (unless we specifically want to avoid Bulma stuff)
 @import '~bulma/bulma';
 
-$company-font: 'Lobster Two', cursive;
+$company-family: 'Lobster Two', cursive;
 
 @import './bg-stripe.scss';
 @import './header.scss';

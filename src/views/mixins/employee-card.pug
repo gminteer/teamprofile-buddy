@@ -1,0 +1,13 @@
+include ./employee-info.pug
+
+mixin employeeCard(employee)
+  - const name = employee.getName()
+  div.box.mx-4.my-2.px-0.py-0.is-one-third.is-one-quarter-tablet.employee-card
+    div.media.has-text-white.px-1.py-1.mx-1.my-1
+      div.media-left.mx-2.my-1
+        figure.image.is-96x96
+          img(src=`${employee.getAvatar()}` alt=`${name}'s avatar`)
+      div.media-content
+        h3.title.px-3.py-3.is-4.has-text-right= name
+        p.subtitle.px-3.py-3.is-5.has-text-right= role
+    +employeeInfo(employee)

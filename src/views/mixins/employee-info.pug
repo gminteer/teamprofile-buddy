@@ -1,0 +1,23 @@
+include ./manager-info.pug
+include ./engineer-info.pug
+include ./intern-info.pug
+
+mixin employeeInfo(employee)
+  - const role = employee.getRole()
+  - const email = employee.getEmail()
+  div.table-container.mx-2.my-2
+    table.table.is-striped.is-fullwidth
+      tbody
+        tr
+          th.has-text-right.is-size-7 ID
+          td.is-size-7= employee.getId()
+        tr
+          th.has-text-right.is-size-7.is-size-6-desktop Email
+          td.is-size-7.is-size-6-desktop
+            a.is-size-7.is-size-6-desktop(href=`mailto:${email}`).is-size-6= email
+        if role === 'Manager'
+          +managerInfo(employee)
+        else if role === 'Engineer'
+          +engineerInfo(employee)
+        else if role === 'Intern'
+          +internInfo(employee)

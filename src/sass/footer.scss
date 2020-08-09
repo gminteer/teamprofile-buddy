@@ -8,6 +8,7 @@ $footer-border-color: map-get(
   $key: 'celadon-blue',
 );
 $footer-border: 0.5em solid;
+
 footer {
   margin-top: 4rem;
   border-top: $footer-border $footer-border-color;
@@ -30,6 +31,6 @@ footer {
     }
   }
   .subtitle span {
-    font-family: $company-font;
+    font-family: $company-family;
   }
 }
