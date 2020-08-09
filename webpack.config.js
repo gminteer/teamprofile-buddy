@@ -59,6 +59,7 @@ module.exports = (env, argv) => {
       break;
     }
   }
+  if (env.templateLocals) answerFunc = async () => env.templateLocals;
   config.plugins.push(
     new HtmlWebpackPlugin({
       template: 'src/views/index.pug',
