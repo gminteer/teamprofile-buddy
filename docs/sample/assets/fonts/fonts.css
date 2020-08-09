@@ -1,0 +1,60 @@
+/* === Inconsolata - regular */
+@font-face {
+	font-family: 'Inconsolata';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("./font/Inconsolata-Regular.eot");
+	src: local('Inconsolata'),
+		url("./font/Inconsolata-Regular.eot") format("embedded-opentype"),
+		url("./font/Inconsolata-Regular.woff2") format("woff2"),
+		url("./font/Inconsolata-Regular.woff") format("woff"),
+		url("./font/Inconsolata-Regular.ttf") format("truetype"),
+		url("./font/Inconsolata-Regular.svg") format("svg");
+}
+
+/* === Lobster Two - 700italic */
+@font-face {
+	font-family: 'Lobster Two';
+	font-style: italic;
+	font-weight: 700;
+	font-display: swap;
+	src: url("./font/LobsterTwo-BoldItalic.eot");
+	src: local("Lobster Two Bold Italic"),
+		local("LobsterTwo-BoldItalic"),
+		url("./font/LobsterTwo-BoldItalic.eot") format("embedded-opentype"),
+		url("./font/LobsterTwo-BoldItalic.woff2") format("woff2"),
+		url("./font/LobsterTwo-BoldItalic.woff") format("woff"),
+		url("./font/LobsterTwo-BoldItalic.ttf") format("truetype"),
+		url("./font/LobsterTwo-BoldItalic.svg") format("svg");
+}
+
+/* === Raleway - regular */
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("./font/Raleway-Regular.eot");
+	src: local('Raleway'),
+		url("./font/Raleway-Regular.eot") format("embedded-opentype"),
+		url("./font/Raleway-Regular.woff2") format("woff2"),
+		url("./font/Raleway-Regular.woff") format("woff"),
+		url("./font/Raleway-Regular.ttf") format("truetype"),
+		url("./font/Raleway-Regular.svg") format("svg");
+}
+
+/* === Raleway - 600 */
+@font-face {
+	font-family: 'Raleway';
+	font-style: normal;
+	font-weight: 600;
+	font-display: swap;
+	src: url("./font/Raleway-SemiBold.eot");
+	src: local('Raleway'),
+		url("./font/Raleway-SemiBold.eot") format("embedded-opentype"),
+		url("./font/Raleway-SemiBold.woff2") format("woff2"),
+		url("./font/Raleway-SemiBold.woff") format("woff"),
+		url("./font/Raleway-SemiBold.ttf") format("truetype"),
+		url("./font/Raleway-SemiBold.svg") format("svg");
+}
