@@ -16,20 +16,20 @@ mixin employeeCard(employee)
             th.has-text-right.is-size-7 ID
             td.is-size-7= employee.getId()
           tr
-            th.has-text-right.is-size-7 Email
-            td.is-size-7
-              a.is-size-7(href=`mailto:${email}`).is-size-6= email
+            th.has-text-right.is-size-7.is-size-6-desktop Email
+            td.is-size-7.is-size-6-desktop
+              a.is-size-7.is-size-6-desktop(href=`mailto:${email}`).is-size-6= email
           if role === 'Manager'
             tr
-              th.has-text-right.is-size-7 Office Number
-              td.is-size-7= employee.getOfficeNumber()
+              th.has-text-right.is-size-7.is-size-6-desktop Office Number
+              td.is-size-7.is-size-6-desktop= employee.getOfficeNumber()
           else if role === 'Engineer'
             - const github = employee.getGithub()
             tr
-              th.has-text-right.is-size-7 GitHub
-              td.is-size-7
-                a.is-size-7(href=`https://github.com/${github}`)= github
+              th.has-text-right.is-size-7.is-size-6-desktop GitHub
+              td.is-size-7.is-size-6-desktop
+                a.is-size-7.is-size-6-desktop(href=`https://github.com/${github}`)= github
           else if role === 'Intern'
             tr
-              th.has-text-right.is-size-7 School
-              td.is-size-7= employee.getSchool()
+              th.has-text-right.is-size-7.is-size-6-desktop School
+              td.is-size-7.is-size-6-desktop= employee.getSchool()

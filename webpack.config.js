@@ -4,10 +4,6 @@ const config = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
         test: /\.pug$/,
         use: ['pug-loader'],
       },
@@ -17,6 +13,7 @@ const config = {
           loader: 'url-loader',
           options: {
             name: '[path][name].[ext]',
+            limit: 8192,
           },
         }
       },
@@ -28,6 +25,13 @@ const config = {
         {
           family: 'Lobster Two',
           variants: ['700italic'],
+        },
+        {
+          family: 'Raleway',
+          variants: ['400', '600'],
+        },
+        {
+          family: 'Inconsolata',
         }
       ],
       filename: 'assets/fonts/fonts.css',
@@ -36,9 +40,15 @@ const config = {
 };
 
 module.exports = (env, argv) => {
+  const cssRule = {
+    test: /\.scss$/,
+    use: ['css-loader', 'postcss-loader', 'sass-loader'],
+  };
   switch (argv.mode) {
     case 'development': {
       config.devServer = { port: 8080 };
+      cssRule.use.unshift('style-loader');
+      config.module.rules.push(cssRule);
       config.plugins.push(
         new HtmlWebpackPlugin({
           template: 'src/views/index.pug',
@@ -49,6 +59,8 @@ module.exports = (env, argv) => {
       break;
     }
     case 'production': {
+      cssRule.use.unshift({ loader: 'file-loader', options: { name: 'assets/css/main.css' } }, 'extract-loader');
+      config.module.rules.push(cssRule);
       config.plugins.push(
         new HtmlWebpackPlugin({
           template: 'src/views/index.pug',

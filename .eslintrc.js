@@ -11,7 +11,7 @@ module.exports = {
     'prefer-template': ['warn'],
     'require-jsdoc': ['off'],
     'no-debugger': ['warn'],
-    'brace-style': ['error', '1tbs', {allowSingleLine: true}],
+    'brace-style': ['error', '1tbs', { allowSingleLine: true }],
     eqeqeq: ['error', 'always'],
     curly: ['error', 'multi-or-nest', 'consistent'],
   },

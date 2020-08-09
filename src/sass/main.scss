@@ -4,6 +4,8 @@
 
 $tablet: 768px; // default is 769px for unexplained reasons.
 $column-gap: 0.25rem;
+$title-family: 'Raleway', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+$subtitle-family: 'Raleway', BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $primary: map-get(
   $map: $color-scheme,
   $key: 'prussian-blue',
@@ -26,16 +28,8 @@ $link: map-get(
   $key: 'imperial-red',
 );
 
-@import '~bulma/sass/utilities/_all.sass';
-@import '~bulma/sass/base/_all.sass';
-@import '~bulma/sass/helpers/_all.sass';
-@import '~bulma/sass/grid/columns.sass';
-@import '~bulma/sass/elements/box.sass';
-@import '~bulma/sass/elements/image.sass';
-@import '~bulma/sass/elements/table.sass';
-@import '~bulma/sass/elements/title.sass';
-@import '~bulma/sass/components/level.sass';
-@import '~bulma/sass/components/media.sass';
+// using PostCSS PurgeCSS, so there's no point in importing specific modules (unless we specifically want to avoid Bulma stuff)
+@import '~bulma/bulma';
 
 $company-font: 'Lobster Two', cursive;
 

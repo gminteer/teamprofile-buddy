@@ -17,6 +17,7 @@ $card-border: 0.35em solid;
 $card-border-thin: 0.15em solid;
 $card-border-radius: 1em;
 $card-border-radius-small: 0.5em;
+$card-table-font: Inconsolata, monospace;
 
 .employee-card {
   border-radius: $card-border-radius;
@@ -29,6 +30,9 @@ $card-border-radius-small: 0.5em;
   img {
     border-radius: $card-border-radius;
     border: $card-border $card-inner-border-color;
+  }
+  td, th {
+    font-family: $card-table-font;
   }
   .table-container {
     border-radius: $card-border-radius;
