@@ -1,8 +1,8 @@
-include ./manager-info.pug
-include ./engineer-info.pug
-include ./intern-info.pug
+include ./manager-rows.pug
+include ./engineer-rows.pug
+include ./intern-rows.pug
 
-mixin employeeInfo(employee)
+mixin employeeTable(employee)
   - const role = employee.getRole()
   - const email = employee.getEmail()
   div.table-container.mx-2.my-2
@@ -16,8 +16,8 @@ mixin employeeInfo(employee)
           td.is-size-7.is-size-6-desktop
             a.is-size-7.is-size-6-desktop(href=`mailto:${email}`).is-size-6= email
         if role === 'Manager'
-          +managerInfo(employee)
+          +managerRows(employee)
         else if role === 'Engineer'
-          +engineerInfo(employee)
+          +engineerRows(employee)
         else if role === 'Intern'
-          +internInfo(employee)
+          +internRows(employee)

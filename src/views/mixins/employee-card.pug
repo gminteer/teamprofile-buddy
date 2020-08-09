@@ -1,4 +1,4 @@
-include ./employee-info.pug
+include ./employee-table.pug
 
 mixin employeeCard(employee)
   - const name = employee.getName()
@@ -9,5 +9,5 @@ mixin employeeCard(employee)
           img(src=`${employee.getAvatar()}` alt=`${name}'s avatar`)
       div.media-content
         h3.title.px-3.py-3.is-4.has-text-right= name
-        p.subtitle.px-3.py-3.is-5.has-text-right= role
-    +employeeInfo(employee)
+        p.subtitle.px-3.py-3.is-5.has-text-right= employee.getRole()
+    +employeeTable(employee)
