@@ -23,19 +23,19 @@ function fakeEmployeeData(domain) {
 async function getAnswers() {
   const companyName = faker.company.companyName();
   const data = {
-    company: { name: companyName, domain: `${companyName.replace(/[^\w\d-]/g, '')}.${faker.internet.domainSuffix()}` },
+    company: {name: companyName, domain: `${companyName.replace(/[^\w\d-]/g, '')}.${faker.internet.domainSuffix()}`},
     team: faker.fake('{{name.jobDescriptor}} {{name.jobArea}}'),
   };
   let name, attrs;
-  ({ name, ...attrs } = fakeEmployeeData(data.company.domain));
+  ({name, ...attrs} = fakeEmployeeData(data.company.domain));
   data.manager = new Constructor.manager(name, attrs);
   data.employees = [];
   for (let i = 0; i < Math.ceil(Math.random() * 5 + 3); i++) {
-    ({ name, ...attrs } = fakeEmployeeData(data.company.domain));
+    ({name, ...attrs} = fakeEmployeeData(data.company.domain));
     data.employees.push(new Constructor.engineer(name, attrs));
   }
   for (let i = 0; i < Math.ceil(Math.random() * 5 + 3); i++) {
-    ({ name, ...attrs } = fakeEmployeeData(data.company.domain));
+    ({name, ...attrs} = fakeEmployeeData(data.company.domain));
     data.employees.push(new Constructor.intern(name, attrs));
   }
   return data;

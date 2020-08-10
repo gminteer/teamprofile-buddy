@@ -14,7 +14,7 @@ const config = {
           options: {
             name: '[path][name].[ext]',
           },
-        }
+        },
       },
     ],
   },
@@ -31,10 +31,10 @@ const config = {
         },
         {
           family: 'Inconsolata',
-        }
+        },
       ],
       filename: 'assets/fonts/fonts.css',
-    })
+    }),
   ],
 };
 
@@ -46,14 +46,14 @@ module.exports = (env, argv) => {
   let answerFunc;
   switch (argv.mode) {
     case 'development': {
-      config.devServer = { port: 8080 };
+      config.devServer = {port: 8080};
       cssRule.use.unshift('style-loader');
       config.module.rules.push(cssRule);
       answerFunc = require('./test/mockAnswers');
       break;
     }
     case 'production': {
-      cssRule.use.unshift({ loader: 'file-loader', options: { name: 'assets/css/main.css' } }, 'extract-loader');
+      cssRule.use.unshift({loader: 'file-loader', options: {name: 'assets/css/main.css'}}, 'extract-loader');
       config.module.rules.push(cssRule);
       answerFunc = require('./lib/getAnswers');
       break;
@@ -64,8 +64,8 @@ module.exports = (env, argv) => {
     new HtmlWebpackPlugin({
       template: 'src/views/index.pug',
       filename: 'index.html',
-      templateParameters: async () => Object({ mode: argv.mode, ...await answerFunc() }),
-    }),
+      templateParameters: async () => Object({mode: argv.mode, ...(await answerFunc())}),
+    })
   );
   return config;
 };

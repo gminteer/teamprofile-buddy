@@ -31,7 +31,8 @@ $card-table-font: Inconsolata, monospace;
     border-radius: $card-border-radius;
     border: $card-border $card-inner-border-color;
   }
-  td, th {
+  td,
+  th {
     font-family: $card-table-font;
   }
   .table-container {

@@ -6,11 +6,13 @@ function logMe(err, stats) {
 }
 
 if (process.env.NODE_ENV === 'production') {
-  teamprofileBuddy.getAnswers().then(
-    (answers) => teamprofileBuddy.compileProd(answers).run(logMe)
-  ).catch((err) => console.error(err));
+  teamprofileBuddy
+    .getAnswers()
+    .then((answers) => teamprofileBuddy.compileProd(answers).run(logMe))
+    .catch((err) => console.error(err));
 } else {
-  teamprofileBuddy.fakeAnswers().then(
-    (answers) => teamprofileBuddy.compileDev(answers).run(logMe)
-  ).catch((err) => console.error(err));
+  teamprofileBuddy
+    .fakeAnswers()
+    .then((answers) => teamprofileBuddy.compileDev(answers).run(logMe))
+    .catch((err) => console.error(err));
 }
