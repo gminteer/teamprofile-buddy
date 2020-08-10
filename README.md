@@ -8,7 +8,7 @@
 
 ---
 
-Generate a team profile page (like [this sample](docs/sample/index.html)) effortlessly from the command line, after answering a couple of simple questions. 
+Generate a team profile page (like [this sample](docs/sample/index.html)) effortlessly from the command line, after answering a couple of simple questions. See it in action [here](https://youtu.be/dTPfas1c91c)
 
 ## Installation
 
